@@ -19,12 +19,14 @@ class userController
     // Store a newly created user in the database
     public function store()
     {
-        $title = $_POST['title'];
-        $content = $_POST['content'];
+        $name = $_POST['name'];
+        $email = $_POST['email'];
+        $password = $_POST['password'];
 
         $user = new User();
-        $user->setTitle($title);
-        $user->setContent($content);
+        $user->setName($name);
+        $user->setEmail($email);
+        $user->setPassword($password);
         $user->save();
 
         header('Location: index.php?controller=user&action=index');
@@ -42,12 +44,14 @@ class userController
     public function update()
     {
         $id = $_POST['id'];
-        $title = $_POST['title'];
-        $content = $_POST['content'];
+        $name = $_POST['name'];
+        $email = $_POST['email'];
+        $password = $_POST['password'];
 
         $user = User::getById($id);
-        $user->setTitle($title);
-        $user->setContent($content);
+        $user->setName($name);
+        $user->setEmail($email);
+        $user->setPassword($password);
         $user->save();
 
         header('Location: index.php?controller=user&action=index');
@@ -57,9 +61,7 @@ class userController
     public function delete()
     {
         $id = $_GET['id'];
-        $user = User::getById($id);
-        $user->delete();
-
+        User::delete($id);
         header('Location: index.php?controller=user&action=index');
     }
 }

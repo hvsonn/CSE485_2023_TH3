@@ -50,27 +50,23 @@
     <main class="container mt-5 mb-5">
         <div class="row">
             <div class="col-sm">
-                <h3 class="text-center text-uppercase fw-bold">Sửa thông tin người dùng</h3>
-                <form action="index.php?controller=user&action=update" method="post">
+                <h3 class="text-center text-uppercase fw-bold">Sửa thông tin khóa học</h3>
+                <form action="index.php?controller=course&action=update" method="post">
                 <div class="input-group mt-3 mb-3">
                         <span class="input-group-text" id="lblCatId">ID</span>
-                        <input type="text" class="form-control" name="id" readonly value="<?= $user["id"]  ?>">
+                        <input type="text" class="form-control" name="id" readonly value="<?= $course["id"]  ?>">
                     </div>
                     <div class="input-group mt-3 mb-3">
-                        <span class="input-group-text" id="lblCatName">Name</span>
-                        <input type="text" class="form-control" name="name" value = "<?= $user["name"]  ?>">
+                        <span class="input-group-text" id="lblCatName">Title</span>
+                        <input type="text" class="form-control" name="name" value = "<?= $course["title"]  ?>">
                     </div>
                     <div class="input-group mt-3 mb-3">
-                        <span class="input-group-text" id="lblCatName">Email</span>
-                        <input type="text" class="form-control" name="email" value = "<?= $user["email"]  ?>">
-                    </div>
-                    <div class="input-group mt-3 mb-3">
-                        <span class="input-group-text" id="lblCatName">Password</span>
-                        <input type="text" class="form-control" name="password" value = "<?= $user["password"]  ?>">
+                        <span class="input-group-text" id="lblCatName">Description</span>
+                        <input type="text" class="form-control" name="description" value = "<?= $course["description"]  ?>">
                     </div>
                     <div class="form-group  float-end ">
                         <input type="submit" value="Lưu lại" class="btn btn-success">
-                        <a href="index.php?controller=user&action=index" class="btn btn-warning ">Quay lại</a>
+                        <a href="index.php?controller=course&action=index" class="btn btn-warning ">Quay lại</a>
                     </div>
                 </form>
             </div>
