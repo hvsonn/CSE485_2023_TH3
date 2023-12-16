@@ -1,7 +1,7 @@
 <?php
 include("models/user.php");
 
-class userController
+class UserController
 {
     // Display a list of users
     public function index()
@@ -48,11 +48,11 @@ class userController
         $email = $_POST['email'];
         $password = $_POST['password'];
 
-        $user = User::getById($id);
+        $user = new User();
         $user->setName($name);
         $user->setEmail($email);
         $user->setPassword($password);
-        $user->save();
+        $user->update($id);
 
         header('Location: index.php?controller=user&action=index');
     }

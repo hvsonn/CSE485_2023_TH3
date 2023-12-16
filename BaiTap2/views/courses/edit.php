@@ -58,7 +58,7 @@
                     </div>
                     <div class="input-group mt-3 mb-3">
                         <span class="input-group-text" id="lblCatName">Title</span>
-                        <input type="text" class="form-control" name="name" value = "<?= $course["title"]  ?>">
+                        <input type="text" class="form-control" name="title" value = "<?= $course["title"]  ?>">
                     </div>
                     <div class="input-group mt-3 mb-3">
                         <span class="input-group-text" id="lblCatName">Description</span>

@@ -59,10 +59,10 @@ class Course
         $query->execute();
     }
 
-    public function update()
+    public function update($id)
     {
         $query = $this->db->prepare('UPDATE courses SET title = :title, description = :description WHERE id = :id');
-        $query->bindParam(':id', $this->id, PDO::PARAM_INT);
+        $query->bindParam(':id', $id, PDO::PARAM_INT);
         $query->bindParam(':title', $this->title, PDO::PARAM_STR);
         $query->bindParam(':description', $this->description, PDO::PARAM_STR);
         $query->execute();
