@@ -1,8 +1,8 @@
 <?php
-require_once 'models/Database.php';
+require_once 'config.php';
 
 // Get the controller and action from the URL
-$controller = isset($_GET['controller']) ? $_GET['controller'] : 'post';
+$controller = isset($_GET['controller']) ? $_GET['controller'] : 'user';
 $action = isset($_GET['action']) ? $_GET['action'] : 'index';
 
 // Create the controller class name
@@ -10,6 +10,7 @@ $controllerClass = ucfirst($controller) . 'Controller';
 
 // Instantiate the controller
 $controllerFile = "controllers/$controllerClass.php";
+
 if (file_exists($controllerFile)) {
     require_once $controllerFile;
     $controllerInstance = new $controllerClass();
@@ -18,4 +19,3 @@ if (file_exists($controllerFile)) {
     echo "Controller not found.";
 }
 ?>
-
