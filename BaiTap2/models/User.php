@@ -64,10 +64,10 @@ class User
         $query->execute();
     }
 
-    public function update()
+    public function update($id)
     {
         $query = $this->db->prepare('UPDATE users SET name = :name, email = :email, password = :password WHERE id = :id');
-        $query->bindParam(':id', $this->id, PDO::PARAM_INT);
+        $query->bindParam(':id', $id, PDO::PARAM_INT);
         $query->bindParam(':name', $this->name, PDO::PARAM_STR);
         $query->bindParam(':email', $this->email, PDO::PARAM_STR);
         $query->bindParam(':password', $this->password, PDO::PARAM_STR);

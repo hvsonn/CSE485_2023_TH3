@@ -46,10 +46,10 @@ class CourseController
         $title = $_POST['title'];
         $description = $_POST['description'];
 
-        $course = Course::getById($id);
+        $course = new Course();
         $course->setTitle($title);
         $course->setDescription($description);
-        $course->save();
+        $course->update($id);
 
         header('Location: index.php?controller=course&action=index');
     }
