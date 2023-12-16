@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
 include("../config.php");
 class Course
 {
@@ -76,4 +76,4 @@ class Course
         $query->execute();
     }
 }
-?>
+?>-->
