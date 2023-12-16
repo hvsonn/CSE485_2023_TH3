@@ -1,11 +1,10 @@
-<!-- <?php
+<?php
 include("../config.php");
-class User
+class Course
 {
     private $id;
-    private $name;
-    private $email;
-    private $password;
+    private $title;
+    private $description;
     private $created;
     private $updated;
     public $db;
@@ -15,15 +14,12 @@ class User
         $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
 
-    public function setName($name) {
-        $this->name = $name;
+    public function setTitle($title) {
+        $this->title = $title;
     }
 
-    public function setEmail($email) {
-        $this->email = $email;
-    }
-    public function setPassword($password) {
-        $this->password = $password;
+    public function setDescription($description) {
+        $this->description = $description;
     }
 
     public function setCreated($created) {
@@ -39,7 +35,7 @@ class User
         $db = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME, DB_USER, DB_PASS);
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        $query = $db->query('SELECT * FROM users');
+        $query = $db->query('SELECT * FROM courses');
         return $query->fetchAll(PDO::FETCH_ASSOC);
     }
 
@@ -48,7 +44,7 @@ class User
         $db = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME, DB_USER, DB_PASS);
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        $query = $db->prepare('SELECT * FROM users WHERE id = :id');
+        $query = $db->prepare('SELECT * FROM courses WHERE id = :id');
         $query->bindParam(':id',$id, PDO::PARAM_INT);
         $query->execute();
 
@@ -57,29 +53,27 @@ class User
 
     public function save()
     {
-        $query = $this->db->prepare('INSERT INTO users (name, email, password) VALUES (:name, :email, :password)');
-        $query->bindParam(':name', $this->name, PDO::PARAM_STR);
-        $query->bindParam(':email', $this->email, PDO::PARAM_STR);
-        $query->bindParam(':password', $this->password, PDO::PARAM_STR);
+        $query = $this->db->prepare('INSERT INTO courses (title, description) VALUES (:title, :description)');
+        $query->bindParam(':title', $this->title, PDO::PARAM_STR);
+        $query->bindParam(':description', $this->description, PDO::PARAM_STR);
         $query->execute();
     }
 
     public function update()
     {
-        $query = $this->db->prepare('UPDATE users SET name = :name, email = :email, password = :password WHERE id = :id');
+        $query = $this->db->prepare('UPDATE courses SET title = :title, description = :description WHERE id = :id');
         $query->bindParam(':id', $this->id, PDO::PARAM_INT);
-        $query->bindParam(':name', $this->name, PDO::PARAM_STR);
-        $query->bindParam(':email', $this->email, PDO::PARAM_STR);
-        $query->bindParam(':password', $this->password, PDO::PARAM_STR);
+        $query->bindParam(':title', $this->title, PDO::PARAM_STR);
+        $query->bindParam(':description', $this->description, PDO::PARAM_STR);
         $query->execute();
     }
 
     public static function delete($id)
     {
         $db = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME, DB_USER, DB_PASS);
-        $query = $db->prepare('DELETE FROM users WHERE id = :id');
+        $query = $db->prepare('DELETE FROM courses WHERE id = :id');
         $query->bindParam(':id', $id, PDO::PARAM_INT);
         $query->execute();
     }
 }
-?> -->
+?>
