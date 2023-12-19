@@ -62,7 +62,7 @@
                     </div>
                     <div class="input-group mt-3 mb-3">
                         <span class="input-group-text" id="lblCatName">Option</span>
-                        <input type="text" class="form-control" name="Option" value = "<?= $option["option"]  ?>">
+                        <input type="text" class="form-control" name="Option" value = "<?= $option["option_text"]  ?>">
                     </div>
                     <div class="input-group mt-3 mb-3">
                         <span class="input-group-text" id="lblCatName">Is Correct</span>

@@ -58,11 +58,11 @@
                     </div>
                     <div class="input-group mt-3 mb-3">
                         <span class="input-group-text" id="lblCatName">Quiz ID</span>
-                        <input type="text" class="form-control" name="Quiz ID" value = "<?= $question["Quiz ID"]  ?>">
+                        <input type="text" class="form-control" name="quiz_id" value = "<?= $question["quiz_id"]  ?>">
                     </div>
                     <div class="input-group mt-3 mb-3">
                         <span class="input-group-text" id="lblCatName">Question</span>
-                        <input type="text" class="form-control" name="Question" value = "<?= $question["Question"]  ?>">
+                        <input type="text" class="form-control" name="question" value = "<?= $question["question"]  ?>">
                     </div>
                     <div class="form-group  float-end ">
                         <input type="submit" value="Lưu lại" class="btn btn-success">
