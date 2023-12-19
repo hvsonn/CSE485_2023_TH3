@@ -50,27 +50,24 @@
     <main class="container mt-5 mb-5">
         <div class="row">
             <div class="col-sm">
-                <h3 class="text-center text-uppercase fw-bold">Sửa thông tin khóa học</h3>
-                <form action="index.php?controller=material&action=update" method="post">
+                <h3 class="text-center text-uppercase fw-bold">Sửa thông tin Quizze</h3>
+                <form action="index.php?controller=quizze&action=update" method="post">
                 <div class="input-group mt-3 mb-3">
                         <span class="input-group-text" id="lblCatId">ID</span>
-                        <input type="text" class="form-control" name="id" readonly value="<?= $material["id"]  ?>">
+                        <input type="text" class="form-control" name="id" readonly value="<?= $quizze["id"]  ?>">
                     </div>
                     <div class="input-group mt-3 mb-3">
                         <span class="input-group-text" id="lblCatName">Lesson_id</span>
-                        <input type="text" class="form-control" name="lesson_id" value = "<?= $material["lesson_id"]  ?>">
+                        <input type="text" class="form-control" name="lesson_id" value = "<?= $quizze["lesson_id"]  ?>">
                     </div>
                     <div class="input-group mt-3 mb-3">
                         <span class="input-group-text" id="lblCatName">Title</span>
-                        <input type="text" class="form-control" name="title" value = "<?= $material["title"]  ?>">
+                        <input type="text" class="form-control" name="title" value = "<?= $quizze["title"]  ?>">
                     </div>
-                    <div class="input-group mt-3 mb-3">
-                        <span class="input-group-text" id="lblCatName">File_path</span>
-                        <input type="text" class="form-control" name="file_path" value = "<?= $material["file_path"]  ?>">
-                    </div>
+                    
                     <div class="form-group  float-end ">
                         <input type="submit" value="Lưu lại" class="btn btn-success">
-                        <a href="index.php?controller=material&action=index" class="btn btn-warning ">Quay lại</a>
+                        <a href="index.php?controller=quizze&action=index" class="btn btn-warning ">Quay lại</a>
                     </div>
                 </form>
             </div>

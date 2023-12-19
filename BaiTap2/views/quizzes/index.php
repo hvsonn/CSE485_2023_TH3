@@ -48,32 +48,30 @@
     </ul>
   </div>
 </nav>
-    <a href="index.php?controller=material&action=create" class="btn btn-success">Thêm mới</a>
+    <a href="index.php?controller=quizze&action=create" class="btn btn-success">Thêm mới</a>
     <table class="table">
       <thead>
         <tr>
           <th>ID</th>
           <th>Lesson_ID</th>
           <th>Title</th>
-          <th>File_Path</th>
           <th>Created</th>
           <th>Updated</th>
         </tr>
       </thead>
       <tbody>
-        <?php foreach($list_materials as $material):  ?>
+        <?php foreach($list_quizzes as $quizze):  ?>
             <tr>
-                <td><?= $material["id"] ?></td>
-                <td><?= $material["lesson_id"] ?></td>
-                <td><?= $material["title"] ?></td>
-                <td><?= $material["file_path"] ?></td>
-                <td><?= $material["created_at"] ?></td>
-                <td><?= $material["updated_at"] ?></td>
+                <td><?= $quizze["id"] ?></td>
+                <td><?= $quizze["lesson_id"] ?></td>
+                <td><?= $quizze["title"] ?></td>
+                <td><?= $quizze["created_at"] ?></td>
+                <td><?= $quizze["updated_at"] ?></td>
                 <td>
-                  <a class="btn btn-warning" type="button" href="index.php?controller=material&action=edit&id=<?php echo $material['id']; ?>">Edit</a>
+                  <a class="btn btn-warning" type="button" href="index.php?controller=quizze&action=edit&id=<?php echo $quizze['id']; ?>">Edit</a>
                 </td>
                 <td>
-                  <a class="btn btn-danger" type="button" href="index.php?controller=material&action=delete&id=<?php echo $material['id']; ?>">Delete</a>
+                  <a class="btn btn-danger" type="button" href="index.php?controller=quizze&action=delete&id=<?php echo $quizze['id']; ?>">Delete</a>
                 </td>
             </tr>
         <?php endforeach; ?>

@@ -50,7 +50,7 @@
     <main class="container mt-5 mb-5">
         <div class="row">
             <div class="col-sm">
-                <h3 class="text-center text-uppercase fw-bold">Sửa thông tin khóa học</h3>
+                <h3 class="text-center text-uppercase fw-bold">Sửa thông tin Material</h3>
                 <form action="index.php?controller=material&action=update" method="post">
                 <div class="input-group mt-3 mb-3">
                         <span class="input-group-text" id="lblCatId">ID</span>

@@ -1,11 +1,10 @@
 <!-- <?php
 include("../config.php");
-class Material
+class Quizze
 {
     private $id;
-    private $title;
     private $lesson_id;
-    private $file_path;
+    private $title;
     private $created;
     private $updated;
     public $db;
@@ -22,9 +21,6 @@ class Material
     public function setLesson_id($lesson_id) {
         $this->lesson_id = $lesson_id;
     }
-    public function setFile_path($file_path) {
-        $this->file_path = $file_path;
-    }
 
     public function setCreated($created) {
         $this->created = $created;
@@ -39,7 +35,7 @@ class Material
         $db = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME, DB_USER, DB_PASS);
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        $query = $db->query('SELECT * FROM materials');
+        $query = $db->query('SELECT * FROM quizzes');
         return $query->fetchAll(PDO::FETCH_ASSOC);
     }
 
@@ -48,7 +44,7 @@ class Material
         $db = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME, DB_USER, DB_PASS);
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        $query = $db->prepare('SELECT * FROM materials WHERE id = :id');
+        $query = $db->prepare('SELECT * FROM quizzes WHERE id = :id');
         $query->bindParam(':id',$id, PDO::PARAM_INT);
         $query->execute();
 
@@ -57,20 +53,18 @@ class Material
 
     public function save()
     {
-        $query = $this->db->prepare('INSERT INTO materials (title,lesson_id,file_path) VALUES (:title, :lesson_id,:file_path)');
+        $query = $this->db->prepare('INSERT INTO quizzes (title,lesson_id) VALUES (:title, :lesson_id)');
         $query->bindParam(':title', $this->title, PDO::PARAM_STR);
         $query->bindParam(':lesson_id', $this->lesson_id, PDO::PARAM_STR);
-        $query->bindParam(':file_path', $this->file_path, PDO::PARAM_STR);
         $query->execute();
     }
 
     public function update($id)
     {
-        $query = $this->db->prepare('UPDATE materials SET title = :title, lesson_id = :lesson_id , file_path = :file_path WHERE id = :id');
+        $query = $this->db->prepare('UPDATE quizzes SET title = :title, lesson_id = :lesson_id  WHERE id = :id');
         $query->bindParam(':id', $id, PDO::PARAM_INT);
         $query->bindParam(':title', $this->title, PDO::PARAM_STR);
         $query->bindParam(':lesson_id', $this->lesson_id, PDO::PARAM_STR);
-        $query->bindParam(':file_path', $this->file_path, PDO::PARAM_STR);
         $query->execute();
     }
     
@@ -79,7 +73,7 @@ class Material
     public static function delete($id)
     {
         $db = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME, DB_USER, DB_PASS);
-        $query = $db->prepare('DELETE FROM materials WHERE id = :id');
+        $query = $db->prepare('DELETE FROM quizzes WHERE id = :id');
         $query->bindParam(':id', $id, PDO::PARAM_INT);
         $query->execute();
     }

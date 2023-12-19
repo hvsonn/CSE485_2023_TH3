@@ -51,22 +51,21 @@
         <div class="row">
             <div class="col-sm">
                 <h3 class="text-center text-uppercase fw-bold">Thêm khóa học</h3>
-                <form action="index.php?controller=material&action=store" method="post">
+                <form action="index.php?controller=quizze&action=store" method="post">
+
+                     <div class="input-group mt-3 mb-3">
+                        <span class="input-group-text" id="lblCatName">Lesson_id</span>
+                        <input type="text" class="form-control" name="lesson_id">
+                    </div>
+
                     <div class="input-group mt-3 mb-3">
                         <span class="input-group-text" id="lblCatName">Title</span>
                         <input type="text" class="form-control" name="title">
                     </div>
-                    <div class="input-group mt-3 mb-3">
-                        <span class="input-group-text" id="lblCatName">Lesson_id</span>
-                        <input type="text" class="form-control" name="lesson_id">
-                    </div>
-                    <div class="input-group mt-3 mb-3">
-                        <span class="input-group-text" id="lblCatName">File_path</span>
-                        <input type="text" class="form-control" name="file_path">
-                    </div>
+                    
                     <div class="form-group  float-end ">
                         <input type="submit" value="Lưu lại" class="btn btn-success">
-                        <a href="index.php?controller=material&action=index" class="btn btn-warning ">Quay lại</a>
+                        <a href="index.php?controller=quizze&action=index" class="btn btn-warning ">Quay lại</a>
                     </div>
                 </form>
             </div>

@@ -1,5 +1,5 @@
 <?php
-include("models/material.php");
+include("models/Material.php");
 
 class MaterialController
 {
@@ -62,7 +62,7 @@ class MaterialController
     public function delete()
     {
         $id = $_GET['id'];
-        material::delete($id);
+        Material::delete($id);
         header('Location: index.php?controller=material&action=index');
     }
 }
