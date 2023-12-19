@@ -25,7 +25,7 @@
       <a class="nav-link" href="index.php?controller=user&action=index">User</a>
       </li>
       <li class="nav-item active">
-      <a class="nav-link" href="index.php?controller=course&action=index">Course</a>
+      <a class="nav-link active" href="index.php?controller=course&action=index">Course</a>
       </li>
       <li class="nav-item active">
       <a class="nav-link" href="index.php?controller=course_user&action=index">Course User</a>

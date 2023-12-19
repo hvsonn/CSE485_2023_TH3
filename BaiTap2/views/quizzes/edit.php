@@ -36,7 +36,7 @@
         <a class="nav-link" href="index.php?controller=material&action=index">Material</a>
         </li>
         <li class="nav-item active">
-        <a class="nav-link" href="index.php?controller=quizze&action=index">Quizze</a>
+        <a class="nav-link active" href="index.php?controller=quizze&action=index">Quizze</a>
         </li>
         <li class="nav-item active">
         <a class="nav-link" href="index.php?controller=question&action=index">Question</a>

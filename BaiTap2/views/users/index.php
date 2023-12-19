@@ -22,7 +22,7 @@
         <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item active">
-      <a class="nav-link" href="index.php?controller=user&action=index">User</a>
+      <a class="nav-link active" href="index.php?controller=user&action=index">User</a>
       </li>
       <li class="nav-item active">
       <a class="nav-link" href="index.php?controller=course&action=index">Course</a>
