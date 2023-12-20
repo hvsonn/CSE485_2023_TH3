@@ -1,12 +1,12 @@
 <?php
-include("models/Options.php");
+include("models/Option.php");
 
 class OptionController
 {
     // Display a list of options
     public function index()
     {
-        $list_options = Options::getAll();
+        $list_options = Option::getAll();
         require 'views/options/index.php';
     }
 
@@ -19,11 +19,11 @@ class OptionController
     // Store a newly created option in the database
     public function store()
     {
-        $question_id = $_POST['QuestionID'];
+        $question_id = $_POST['question_id'];
         $option = $_POST['Option'];
-        $is_correct = $_POST['Is Correct'];
+        $is_correct = $_POST['is_correct'];
 
-        $option = new Options();
+        $option = new Option();
         $option->setQuestionID($question_id);
         $option->setOption($option);
         $option->setIsCorrect($is_correct);
@@ -36,7 +36,7 @@ class OptionController
     public function edit()
     {
         $id = $_GET['id'];
-        $option = Options::getById($id);
+        $option = Option::getById($id);
         require 'views/options/edit.php';
     }
 
@@ -44,10 +44,10 @@ class OptionController
     public function update()
     {
         $id = $_POST['id'];
-        $question_id = $_POST['QuestionID'];
-        $option = $_POST['Option'];
+        $question_id = $_POST['question_id'];
+        $option = $_POST['option'];
 
-        $option = new Options();
+        $option = new Option();
         $option->setQuestionID($question_id);
         $option->setOption($option);
         $option->update($id);
@@ -59,7 +59,7 @@ class OptionController
     public function delete()
     {
         $id = $_GET['id'];
-        Options::delete($id);
+        Option::delete($id);
         header('Location: index.php?controller=option&action=index');
     }
 }

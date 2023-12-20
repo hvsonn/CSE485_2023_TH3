@@ -1,12 +1,12 @@
 <?php
-include("models/Questions.php");
+include("models/Question.php");
 
 class QuestionController
 {
     // Display a list of options
     public function index()
     {
-        $list_questions = Questions::getAll();
+        $list_questions = Question::getAll();      
         require 'views/questions/index.php';
     }
 
@@ -19,13 +19,13 @@ class QuestionController
     // Store a newly created course in the database
     public function store()
     {
-        $quiz_id = $_POST['Quiz_id'];
-        $question = $_POST['Question'];
+        $quiz_id = $_POST['quiz_id'];
+        $question = $_POST['question'];
 
-        $questions = new Questions();
-        $questions->setQuizid($quiz_id);
-        $questions->setQuestion($question);
-        $questions->save();
+        $question = new Question();
+        $question->setQuizid($quiz_id);
+        $question->setQuestion($question);
+        $question->save();
 
         header('Location: index.php?controller=question&action=index');
     }
@@ -34,21 +34,20 @@ class QuestionController
     public function edit()
     {
         $id = $_GET['id'];
-        $questions = Questions::getById($id);
-        require 'views/questions/edit.php';
+        $question = Question::getById($id);
     }
 
     // Update the specified question in the database
     public function update()
     {
         $id = $_POST['id'];
-        $quiz_id = $_POST['Quiz_id'];
-        $question = $_POST['Question'];
+        $quiz_id = $_POST['quiz_id'];
+        $question = $_POST['question'];
 
-        $questions = new Questions();
-        $questions->setQuizid($quiz_id);
-        $questions->setQuestion($question);
-        $questions->update($id);
+        $question = new Question();
+        $question->setQuizid($quiz_id);
+        $question->setQuestion($question);
+        $question->update($id);
 
         header('Location: index.php?controller=question&action=index');
     }
@@ -57,7 +56,7 @@ class QuestionController
     public function delete()
     {
         $id = $_GET['id'];
-        Questions::delete($id);
+        Question::delete($id);
         header('Location: index.php?controller=question&action=index');
     }
 }

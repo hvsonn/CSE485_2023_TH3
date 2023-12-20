@@ -60,7 +60,8 @@
         </tr>
       </thead>
       <tbody>
-        <?php foreach($list_questions as $question):  ?>
+        <?php
+          foreach($list_questions as $question):  ?>
             <tr>
                 <td><?= $question["id"] ?></td>
                 <td><?= $question["quiz_id"] ?></td>
@@ -74,7 +75,7 @@
                   <a class="btn btn-danger" type="button" href="index.php?controller=question&action=delete&id=<?php echo $question['id']; ?>">Delete</a>
                 </td>
             </tr>
-        <?php endforeach; ?>
+        <?php endforeach?>
       </tbody>
     </table>
   </main>
