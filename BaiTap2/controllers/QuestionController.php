@@ -6,7 +6,7 @@ class QuestionController
     // Display a list of options
     public function index()
     {
-        $list_questions = Question::getAll();
+        $list_questions = Question::getAll();      
         require 'views/questions/index.php';
     }
 
@@ -35,7 +35,6 @@ class QuestionController
     {
         $id = $_GET['id'];
         $question = Question::getById($id);
-        require 'views/questions/edit.php';
     }
 
     // Update the specified question in the database
