@@ -50,27 +50,23 @@
     <main class="container mt-5 mb-5">
         <div class="row">
             <div class="col-sm">
-                <h3 class="text-center text-uppercase fw-bold">Sửa thông tin tùy chọn</h3>
-                <form action="index.php?controller=option&action=update" method="post">
+                <h3 class="text-center text-uppercase fw-bold">Sửa thông tin người dùng</h3>
+                <form action="index.php?controller=lesson&action=update" method="post">
                 <div class="input-group mt-3 mb-3">
                         <span class="input-group-text" id="lblCatId">ID</span>
-                        <input type="text" class="form-control" name="id" readonly value="<?= $option["id"]  ?>">
+                        <input type="text" class="form-control" name="id" readonly value="<?=$lesson["id"]  ?>">
                     </div>
                     <div class="input-group mt-3 mb-3">
-                        <span class="input-group-text" id="lblCatId">Question ID</span>
-                        <input type="text" class="form-control" name="question_id" readonly value="<?= $option["question_id"]  ?>">
+                        <span class="input-group-text" id="lblCatName">Title</span>
+                        <input type="text" class="form-control" name="title" value = "<?= $lesson["title"]  ?>">
                     </div>
                     <div class="input-group mt-3 mb-3">
-                        <span class="input-group-text" id="lblCatName">Option</span>
-                        <input type="text" class="form-control" name="Option" value = "<?= $option["option_text"]  ?>">
-                    </div>
-                    <div class="input-group mt-3 mb-3">
-                        <span class="input-group-text" id="lblCatName">Is Correct</span>
-                        <input type="text" class="form-control" name="Is Correct" value = "<?= $option["is_correct"]  ?>">
+                        <span class="input-group-text" id="lblCatName">Description</span>
+                        <input type="text" class="form-control" name="description" value = "<?= $lesson["description"]  ?>">
                     </div>
                     <div class="form-group  float-end ">
                         <input type="submit" value="Lưu lại" class="btn btn-success">
-                        <a href="index.php?controller=option&action=index" class="btn btn-warning ">Quay lại</a>
+                        <a href="index.php?controller=lesson&action=index" class="btn btn-warning ">Quay lại</a>
                     </div>
                 </form>
             </div>
