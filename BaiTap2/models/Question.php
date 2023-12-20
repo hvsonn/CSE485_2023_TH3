@@ -54,7 +54,7 @@ class Question
     public function save()
     {
         $query = $this->db->prepare('INSERT INTO questions (quiz_id, question) VALUES (:quiz_id, :question)');
-        $query->bindParam(':quiz_id', $this->quiz_id, PDO::PARAM_STR);
+        $query->bindParam(':quiz_id', $this->quiz_id, PDO::PARAM_INT);
         $query->bindParam(':question', $this->question, PDO::PARAM_STR);
         $query->execute();
     }

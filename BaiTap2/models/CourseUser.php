@@ -3,7 +3,8 @@ class CourseUser{
     private $course_id;
     private $user_id;
     public $db;
-
+    private $create_at;
+    private $update_at;
 
     public function __construct()
     {
@@ -11,10 +12,10 @@ class CourseUser{
         $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
 
-    public function setCourse_id($couse_id){
-        $this->couse_id = $couse_id;
+    public function setCourseId($course_id){
+        $this->course_id = $course_id;
     }
-    public function setuser_id($user_id){
+    public function setUserId($user_id){
          $this->user_id = $user_id;
     }
     public static function getAll()
@@ -26,16 +27,16 @@ class CourseUser{
         return $query->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public static function getById($id)
+    public static function getById($course_id, $user_id)
     {
-        $db = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME, DB_USER, DB_PASS);
-        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-        $query = $db->prepare('SELECT * FROM course_user WHERE id = :id');
-        $query->bindParam(':id',$id, PDO::PARAM_INT);
-        $query->execute();
-
-        return $query->fetch(PDO::FETCH_ASSOC);
+        $db = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+        $list = [];
+        $sql = "SELECT * FROM course_user WHERE course_id = " . $course_id . " AND user_id = " . $user_id;
+        $result = $db->query($sql);
+        while ($row = $result->fetch_assoc()) {
+            $list = $row;
+        }
+        return $list;            
     }
     public function save()
     {
@@ -50,30 +51,27 @@ class CourseUser{
     }
     
 
-    public function update($id)
+    public function update($course_id_old, $user_id_old)
     {
-        $query = $this->db->prepare('UPDATE course_user SET title = :title, description = :description WHERE id = :id');
-        $query->bindParam(':id', $id, PDO::PARAM_INT);
-        $query->bindParam(':title', $this->course_id, PDO::PARAM_STR);
-        $query->bindParam(':description', $this->user_id, PDO::PARAM_STR);
-        $query->execute();
+        $db = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+        $query = "UPDATE course_user SET user_id = " . $this->user_id . ", course_id = " . $this->course_id
+        . " WHERE course_id = " . $course_id_old . " AND user_id = " . $user_id_old;
+        $db->query($query);
     }
 
-    public static function delete($id)
+    public static function delete($course_id, $user_id)
     {
         try{
 
         $db = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME, DB_USER, DB_PASS);    
-            $query = $db->prepare('DELETE FROM course_user WHERE course_id = :id');
-            $query->bindParam(':id', $id, PDO::PARAM_INT);
+            $query = $db->prepare('DELETE FROM course_user WHERE course_id = :course_id AND user_id = :user_id');
+            $query->bindParam(':course_id', $course_id, PDO::PARAM_INT);
+            $query->bindParam(':user_id', $user_id, PDO::PARAM_INT);
             $query->execute();
 
         }catch(PDOException $e){
             echo ''. $e->getMessage();
         }
-
-
-
     }
 
 

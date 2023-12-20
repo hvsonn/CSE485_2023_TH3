@@ -20,11 +20,11 @@ class QuestionController
     public function store()
     {
         $quiz_id = $_POST['quiz_id'];
-        $question = $_POST['question'];
+        $question_param = $_POST['question'];
 
         $question = new Question();
         $question->setQuizid($quiz_id);
-        $question->setQuestion($question);
+        $question->setQuestion($question_param);
         $question->save();
 
         header('Location: index.php?controller=question&action=index');

@@ -9,62 +9,25 @@
     <link rel="stylesheet" href="css/style_login.css">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">LMS</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item active">
-            <a class="nav-link" href="index.php?controller=user&action=index">User</a>
-            </li>
-            <li class="nav-item active">
-            <a class="nav-link" href="index.php?controller=course&action=index">Course</a>
-            </li>
-            <li class="nav-item active">
-            <a class="nav-link" href="index.php?controller=course_user&action=index">Course User</a>
-            </li>
-            <li class="nav-item active">
-            <a class="nav-link" href="index.php?controller=lesson&action=index">Lesson</a>
-            </li>
-            <li class="nav-item active">
-            <a class="nav-link" href="index.php?controller=material&action=index">Material</a>
-            </li>
-            <li class="nav-item active">
-            <a class="nav-link" href="index.php?controller=quizze&action=index">Quizze</a>
-            </li>
-            <li class="nav-item active">
-            <a class="nav-link" href="index.php?controller=question&action=index">Question</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="index.php?controller=option&action=index">Option</a>
-            </li>
-            </ul>
-        </div>
-    </nav>
+    <?php include_once("views/menu.php") ?>
     <main class="container mt-5 mb-5">
         <div class="row">
             <div class="col-sm">
                 <h3 class="text-center text-uppercase fw-bold">Thêm Course User</h3>
-                <form action="index.php?controller=course_user&action=store" method="post">
-    <div class="input-group mt-3 mb-3">
-        <span class="input-group-text" id="lblCatName">Course ID</span>
-        <input type="text" class="form-control" name="course_id">
-    </div>
-    <div class="input-group mt-3 mb-3">
-        <span class="input-group-text" id="lblCatName">User ID</span>
-        <input type="text" class="form-control" name="user_id">
-    </div>
-    <div class="form-group float-end">
-        <input type="submit" value="Lưu lại" class="btn btn-success">
-        <a href="index.php?controller=course_user&action=index" class="btn btn-warning">Quay lại</a>
-    </div>
-</form>
+                <form action="index.php?controller=courseUser&action=store" method="post">
+                    <div class="input-group mt-3 mb-3">
+                        <span class="input-group-text" id="lblCatName">Course ID</span>
+                        <input type="text" class="form-control" name="course_id">
+                    </div>
+                    <div class="input-group mt-3 mb-3">
+                        <span class="input-group-text" id="lblCatName">User ID</span>
+                        <input type="text" class="form-control" name="user_id">
+                    </div>
+                    <div class="form-group float-end">
+                        <input type="submit" value="Lưu lại" class="btn btn-success">
+                        <a href="index.php?controller=courseUser&action=index" class="btn btn-warning">Quay lại</a>
+                    </div>
+                </form>
             </div>
         </div>
     </main>

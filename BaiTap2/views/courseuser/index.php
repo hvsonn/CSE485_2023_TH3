@@ -10,45 +10,8 @@
 </head>
 <body>
   <main>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">LMS</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item active">
-      <a class="nav-link" href="index.php?controller=user&action=index">User</a>
-      </li>
-      <li class="nav-item active">
-      <a class="nav-link" href="index.php?controller=course&action=index">Course</a>
-      </li>
-      <li class="nav-item active">
-      <a class="nav-link" href="index.php?controller=course_user&action=index">Course User</a>
-      </li>
-      <li class="nav-item active">
-      <a class="nav-link" href="index.php?controller=lesson&action=index">Lesson</a>
-      </li>
-      <li class="nav-item active">
-      <a class="nav-link" href="index.php?controller=material&action=index">Material</a>
-      </li>
-      <li class="nav-item active">
-      <a class="nav-link" href="index.php?controller=quizze&action=index">Quizze</a>
-      </li>
-      <li class="nav-item active">
-      <a class="nav-link" href="index.php?controller=question&action=index">Question</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="index.php?controller=option&action=index">Option</a>
-      </li>
-    </ul>
-  </div>
-</nav>
-    <a href="index.php?controller=course_user&action=create" class="btn btn-success">Thêm mới</a>
+  <?php include_once("views/menu.php") ?>
+    <a href="index.php?controller=courseUser&action=create" class="btn btn-success">Thêm mới</a>
     <table class="table">
       <thead>
         <tr>
@@ -62,10 +25,10 @@
                 <td><?= $courseuser["course_id"] ?></td>
                 <td><?= $courseuser["user_id"] ?></td>
                 <td>
-                  <a class="btn btn-warning" type="button" href="index.php?controller=course_user&action=edit&id=<?php echo $courseuser['course_id']; ?>">Edit</a>
+                  <a class="btn btn-warning" href="index.php?controller=courseUser&action=edit&course_id=<?= $courseuser['course_id'] ?>&user_id=<?= $courseuser['user_id'] ?>">Edit</a>
                 </td>
                 <td>
-                  <a class="btn btn-danger" type="button" href="index.php?controller=course_user&action=delete&id=<?php echo $courseuser['course_id']; ?>">Delete</a>
+                  <a class="btn btn-danger" type="button" href="index.php?controller=courseUser&action=delete&course_id=<?= $courseuser['course_id'] ?>&user_id=<?= $courseuser['user_id'] ?>" > Delete</a>
                 </td>
             </tr>
         <?php endforeach; ?>

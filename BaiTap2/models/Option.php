@@ -4,7 +4,7 @@ class Option
 {
     private $id;
     private $question_id;
-    private $option;
+    private $option_text;
     private $is_correct;
     private $created;
     private $updated;
@@ -19,8 +19,8 @@ class Option
         $this->question_id = $question_id;
     }
 
-    public function setOption($option) {
-        $this->option = $option;
+    public function setOptionText($option_text) {
+        $this->option_text = $option_text;
     }
     public function setIsCorrect($is_correct) {
         $this->is_correct = $is_correct;
@@ -57,9 +57,9 @@ class Option
 
     public function save()
     {
-        $query = $this->db->prepare('INSERT INTO options (question_id, option, is_correct) VALUES (:question_id, :option, :is_correct)');
-        $query->bindParam(':question_id', $this->question_id, PDO::PARAM_STR);
-        $query->bindParam(':option',$this->option,PDO::PARAM_STR);
+        $query = $this->db->prepare('INSERT INTO options (question_id, option_text, is_correct) VALUES (:question_id, :option_text, :is_correct)');
+        $query->bindParam(':question_id', $this->question_id, PDO::PARAM_INT);
+        $query->bindParam(':option_text',$this->option_text,PDO::PARAM_STR);
         $query->bindParam(':is_correct', $this->is_correct, PDO::PARAM_STR);
         $query->execute();
         
@@ -67,10 +67,10 @@ class Option
 
     public function update($id)
     {
-        $query = $this->db->prepare('UPDATE options SET question_id = :question_id, option = :option, is_correct = :is_correct WHERE id = :id');
+        $query = $this->db->prepare('UPDATE options SET question_id = :question_id, option_text = :option_text, is_correct = :is_correct WHERE id = :id');
         $query->bindParam(':id', $id, PDO::PARAM_INT);
         $query->bindParam(':question_id', $this->question_id, PDO::PARAM_STR);
-        $query->bindParam(':option', $this->option, PDO::PARAM_STR);
+        $query->bindParam(':option_text', $this->option_text, PDO::PARAM_STR);
         $query->bindParam(':is_correct', $this->is_correct, PDO::PARAM_STR);
         $query->execute();
     }
