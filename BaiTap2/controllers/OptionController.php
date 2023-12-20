@@ -20,12 +20,12 @@ class OptionController
     public function store()
     {
         $question_id = $_POST['question_id'];
-        $option = $_POST['Option'];
+        $option_text = $_POST['option'];
         $is_correct = $_POST['is_correct'];
 
         $option = new Option();
         $option->setQuestionID($question_id);
-        $option->setOption($option);
+        $option->setOptionText($option_text);
         $option->setIsCorrect($is_correct);
         $option->save();
 
@@ -45,11 +45,13 @@ class OptionController
     {
         $id = $_POST['id'];
         $question_id = $_POST['question_id'];
-        $option = $_POST['option'];
+        $option_text = $_POST['option_text'];
+        $is_correct = $_POST['is_correct'];
 
         $option = new Option();
         $option->setQuestionID($question_id);
-        $option->setOption($option);
+        $option->setOptionText($option_text);
+        $option->setIsCorrect($is_correct);
         $option->update($id);
 
         header('Location: index.php?controller=option&action=index');
